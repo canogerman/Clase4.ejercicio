@@ -1,5 +1,3 @@
-
-
 const books = [
     { title: 'El Aleph', author: 'Jorge Luis Borges' },
     { title: 'La ciudad y los perros', author: 'Mario Vargas Llosa' },
@@ -17,13 +15,21 @@ const books = [
     { title: 'Las armas secretas', author: 'Julio Cortázar' }
 ];
       
-function filterBooksByAuthor(books, author) {
-    const filteredBooks = books.filter(book => book.author.includes(author));
-    const modifiedBooks = filteredBooks.map(book => {
-        book.author = author;
-        return book;
-    });
-    console.log(modifiedBooks);
+function filterBooksByAuthor(books, authorName) {
+    const filteredBooks = books.filter(book => book.author.includes(authorName));
+    // const modifiedBooks = filteredBooks.map(book => {
+    //     book.author = author;
+    //     return book;
+    // });
+    const filteredBooksCopy = [...filteredBooks];
+    const modifiedBooksCopy = filteredBooksCopy.map(bookCopy => {
+        bookCopy.author = 'J.L.B.';
+        return bookCopy;
+    })
+    console.log(modifiedBooksCopy);
 };
 
-filterBooksByAuthor(books, 'Cortázar');
+filterBooksByAuthor(books, 'Borges');
+console.log(books);
+
+
