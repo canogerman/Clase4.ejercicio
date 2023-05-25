@@ -18,37 +18,12 @@ const books = [
 ];
       
 function filterBooksByAuthor(books, author) {
-    const filteredBooks = books.filter(book => book.author === author);
+    const filteredBooks = books.filter(book => book.author.includes(author));
     const modifiedBooks = filteredBooks.map(book => {
-        book.author = 'J.L. Borges';
-        return book;  //this modify the original "book" array . 
+        book.author = author;
+        return book;
     });
     console.log(modifiedBooks);
 };
 
-filterBooksByAuthor(books, 'Jorge Luis Borges');
-console.log(books);
-
-// Primera parte: dado un array de libros, implementar una función filterBooksByAuthor( ) que reciba por parámetros
-// dicho array y un string con el nombre de un autor, y devuelva un nuevo array con libros del autor indicado.
-// filter Books By Author(books, ‘Jorge Luis Borges’) return ==> [
-//   { title: 'El Aleph', author: 'Jorge Luis Borges' },
-//   { title: 'Ficciones', author: 'Jorge Luis Borges' },
-//   { title: 'El hacedor', author: 'Jorge Luis Borges' }
-// ];
-
-// Segunda parte: a partir de lo realizado en la primera parte, utilizar la función para obtener todos los libros
-// de un autor a elección, luego mediante métodos de array modificar el nombre del autor de todos los libros filtrados.
-// Observar que si se muestra en consola los libros filtrados se verá el autor modificado.
-// ¿Qué sucede si se muestra en consola el array original?
-
-// Tercera parte: modificar la función de la primera parte para que ahora funcione si mando el nombre completo del autor,
-// o solo su apellido. Por ejemplo, la función debe devolver lo siguiente, ya sea si le mando ‘Jorge Luis Borges’ o ‘Borges’:
-// return ==> [
-//   { title: 'El Aleph', author: 'Jorge Luis Borges' },
-//   { title: 'Ficciones', author: 'Jorge Luis Borges' },
-//   { title: 'El hacedor', author: 'Jorge Luis Borges' }
-// ];
-
-// Cuarta parte: teniendo en cuenta lo observado en la segunda parte, corregir ese comportamiento
-//  de la forma que considere apropiada.
+filterBooksByAuthor(books, 'Cortázar');
